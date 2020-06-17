@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    .analysis {
+    {#background-color: #FFDC00;#} width: 25%;
+        height: 100px;
+        margin: 15% 36%;
+    }
+
+    .shadow-margin {
+        margin-top: 10%;
+        background-color: gray !important;
+    }
+
+    body::after {
+        background-image: url('/static/movie.jpg');
+        content: "";
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+
+    }
+
+</style>
+<body>
+<div class="analysis">
+    <form method=post enctype=multipart/form-data>
+
+        <div class="form-group shadow-textarea">
+
+                <textarea class="form-control z-depth-1" name="user_input" id="exampleFormControlTextarea6" rows="3"
+                          placeholder="Type movie review"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if context['method'] == 'POST' %}
+
+        <div class="shadow-lg p-3 mb-5 bg-light rounded shadow-margin">
+            <h4>Result: {{ context['data'] }}</h4>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
